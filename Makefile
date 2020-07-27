@@ -1,5 +1,5 @@
 CC = gcc
-EXE = golife
+EXE = golife.run
 
 compile: 
 	$(CC) src/*.c -o $(EXE)
