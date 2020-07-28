@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#define NGRID 40
+#define NGRID 50
 
 typedef char Grid[NGRID+2][NGRID+3];
 /** Grid type: 
@@ -12,8 +12,9 @@ typedef char Grid[NGRID+2][NGRID+3];
 * - The last column (eg grid[k][NGRID+2]) is the end-of-string character, ie '\0'.
 * - A border component is the char '*'.
 * - A living cell is represented by the char '$'.
-* - Half-living cell (those which will live at the next generation) are reprensented by the char '0'.
 * - A dead cell is reprensented by the char ' '.
+* - A dying cell is reprensented by the char '-' and it is considered as a current living cell.
+* - A newborn cell is represented by the char '0' and it is considered as a current dead cell.
 */
 void initGrid(Grid);
 

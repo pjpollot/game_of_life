@@ -1,1 +1,3 @@
 *.run
+saves/*.save
+.DS_Store

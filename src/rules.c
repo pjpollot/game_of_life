@@ -5,7 +5,7 @@ static unsigned countLivingNeighors(const unsigned layerIndex, const unsigned co
     for (int k = -1; k <= 1; k++) {
         for (int l = -1; l <= 1; l++) {
             if (l!=0 || k!=0) 
-                count += (grid[layerIndex+k][columnIndex+l] == '$');
+                count += (grid[layerIndex+k][columnIndex+l] == '$' || grid[layerIndex+k][columnIndex+l] == '-');
         }
     }
     return count;
@@ -13,33 +13,31 @@ static unsigned countLivingNeighors(const unsigned layerIndex, const unsigned co
 
 void update(Grid grid) {
     // Updating
+    unsigned count;
     for (int i = 1; i <= NGRID; i++) {
         for (int j = 1; j <= NGRID; j++) {
-            unsigned count;
+            count = countLivingNeighors(i,j,grid);
             switch (grid[i][j])
             {
-            case '$': // Alive
-                count = countLivingNeighors(i,j,grid);
+            case '$':
                 if (count > 3 || count < 2) 
-                    grid[i][j] = ' '; // The cell dies
+                    grid[i][j] = '-'; // then the cell is dying
                 break;
-
-            case ' ': // Dead
-                count = countLivingNeighors(i,j,grid);
+            case ' ':
                 if (count == 3) 
-                    grid[i][j] = '0'; // The cell becomes alive in the next generation
-                break;
-
+                    grid[i][j] = '0'; // Then the cell will live the next generation
             default:
                 break;
             }
         }
     }
-    // Next generation
+    // Awaken the half-alive cells and kill the dying cells
     for (int i = 1; i <= NGRID; i++) {
         for (int j = 1; j <= NGRID; j++) {
-            if (grid[i][j] == '0')
+            if (grid[i][j] == '0') 
                 grid[i][j] = '$';
+            else if (grid[i][j] == '-')
+                grid[i][j] = ' ';
         }
     }
 }

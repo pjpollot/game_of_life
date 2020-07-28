@@ -6,7 +6,7 @@
 int main() {
     Grid grid;
     initGrid(grid);
-    setSeed(grid,"saves/seed.save");
+    setSeed(grid,"saves/seed");
     do {
         printGrid(grid);
         printf("\n");
