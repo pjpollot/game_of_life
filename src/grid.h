@@ -2,8 +2,9 @@
 #define GRID_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
-#define NGRID 50
+#define NGRID 100
 
 typedef char Grid[NGRID+2][NGRID+3];
 /** Grid type: 
@@ -18,8 +19,9 @@ typedef char Grid[NGRID+2][NGRID+3];
 */
 void initGrid(Grid);
 
-void printGrid(const Grid);
+int loadSave(Grid, const char* fileName);
 
-int setSeed(Grid, const char* fileName);
+// p is the probabily that one cell is alive
+void randomInitialState(Grid, const double p);
 
 #endif

@@ -7,21 +7,23 @@
 #include "view.h"
 
 int main(int argc, char* argv[]) {
+    srand(time(0));
 
     // Init
     Grid grid;
     initGrid(grid);
-    setSeed(grid,"saves/seed");
+    randomInitialState(grid,0.15);
     int maxIter;
     struct timespec t;
+
     if (argc == 3) {
         maxIter = atoi(argv[1]);
         long timeMs = atol(argv[2]); // argv[2] in ms
         t.tv_sec = timeMs/1000;
         t.tv_nsec = 1000000L*(timeMs%1000);
     } else {
-        maxIter = 20;
-        t.tv_nsec = 500000000L;
+        maxIter = 300;
+        t.tv_nsec = 70000000L;
         t.tv_sec = 0;
     }
 

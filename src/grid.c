@@ -19,12 +19,7 @@ void initGrid(Grid grid) {
     } 
 }
 
-void printGrid(const Grid grid) {
-    for (int i = 0; i < NGRID+2; i++) 
-        printf("%s\n",grid[i]);
-}
-
-int setSeed(Grid grid, const char* fileName) {
+int loadSave(Grid grid, const char* fileName) {
     FILE* seedFile = fopen(fileName,"r");
     if (seedFile == NULL) return 1; // Error: file not found
     unsigned x, y;
@@ -34,4 +29,13 @@ int setSeed(Grid grid, const char* fileName) {
     }
     fclose(seedFile);
     return 0; // All went well
+}
+
+void randomInitialState(Grid grid, const double p) {
+    for (int i = 1; i <= NGRID; i++) {
+        for (int j = 1; j <= NGRID; j++) {
+            if (((double) rand())/RAND_MAX <= p)
+                grid[i][j] = '$'; // Then it's alive
+        }
+    }
 }

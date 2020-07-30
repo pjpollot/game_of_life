@@ -20,7 +20,7 @@ Then run the program by typing:
 ./golife.run [number of iterations] [time in milliseconds]
 ```
 
-none of these parameters is set, then the program **by default** will iterate `20 times` and change state each `500ms`.
+none of these parameters is set, then the program **by default** will iterate `300 times` and change state each `70ms`.
 
 ## Description
 
