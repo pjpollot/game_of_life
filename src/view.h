@@ -4,11 +4,8 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "properties.h"
 #include "grid.h"
-
-#define WIDTH 500
-#define HEIGHT 500
-#define DELAY 10000
 
 typedef struct {
     SDL_Window* window;
@@ -26,6 +23,8 @@ void cleanRendering(App*);
 // Additionnal tools
 void setColorWhite(App*);
 void setColorBlack(App*);
+void setColorGreen(App*);
+void setColorRed(App*);
 void sdlExitWithMessage(const char*);
 
 #endif

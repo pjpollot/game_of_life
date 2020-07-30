@@ -11,7 +11,7 @@ static unsigned countLivingNeighors(const unsigned layerIndex, const unsigned co
     return count;
 }
 
-void update(Grid grid) {
+void step1update(Grid grid) {
     // Updating
     unsigned count;
     for (int i = 1; i <= NGRID; i++) {
@@ -31,6 +31,9 @@ void update(Grid grid) {
             }
         }
     }
+}
+
+void step2update(Grid grid) {
     // Awaken the half-alive cells and kill the dying cells
     for (int i = 1; i <= NGRID; i++) {
         for (int j = 1; j <= NGRID; j++) {
@@ -40,4 +43,9 @@ void update(Grid grid) {
                 grid[i][j] = ' ';
         }
     }
+}
+
+void update(Grid grid) {
+    step1update(grid);
+    step2update(grid);
 }

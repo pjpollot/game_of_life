@@ -3,8 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#define NGRID 100
+#include "properties.h"
 
 typedef char Grid[NGRID+2][NGRID+3];
 /** Grid type: 

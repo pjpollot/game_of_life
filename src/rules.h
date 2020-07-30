@@ -3,7 +3,8 @@
 
 #include "grid.h"
 
-// Returns the number of births
+void step1update(Grid);
+void step2update(Grid);
 void update(Grid);
 
 #endif

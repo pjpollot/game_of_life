@@ -34,7 +34,7 @@ App* applicationInit() {
 
     // Displaying
     while (SDL_PollEvent(&(app->event))) {
-        /* NOTHING */
+        /* Nothing */
     }
 
     return app;
@@ -53,12 +53,24 @@ void applicationQuit(App* app) {
 }
 
 void renderGrid(App* app, const Grid grid) {
-    setColorWhite(app);
     for (int i = 1; i <= NGRID; i++) {
         for (int j = 1; j <= NGRID; j++) {
-            if (grid[i][j] == '$') {
+            if (grid[i][j] != ' ') {
                 app->rectangle.y = (i-1)*HEIGHT/NGRID;
                 app->rectangle.x = (j-1)*WIDTH/NGRID;
+                switch (grid[i][j]) {
+                case '$':
+                    setColorWhite(app);
+                    break;
+                case '0':
+                    setColorGreen(app);
+                    break;
+                case '-':
+                    setColorRed(app);
+                    break;
+                default:
+                    break;
+                }
                 if (SDL_RenderFillRect(app->renderer,&(app->rectangle)) != 0) 
                     sdlExitWithMessage("can't draw a filled rectangle");
             }
@@ -80,6 +92,16 @@ void setColorWhite(App* app) {
 
 void setColorBlack(App* app) {
     if (SDL_SetRenderDrawColor(app->renderer,0,0,0,SDL_ALPHA_OPAQUE) != 0)
+        sdlExitWithMessage("can't change the fill color to black");
+}
+
+void setColorGreen(App* app) {
+    if (SDL_SetRenderDrawColor(app->renderer,86,227,159,SDL_ALPHA_OPAQUE) != 0)
+        sdlExitWithMessage("can't change the fill color to black");
+}
+
+void setColorRed(App* app) {
+    if (SDL_SetRenderDrawColor(app->renderer,156,74,63,SDL_ALPHA_OPAQUE) != 0)
         sdlExitWithMessage("can't change the fill color to black");
 }
 
