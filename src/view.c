@@ -1,6 +1,13 @@
 #include "view.h"
 
-void applicationInit(App* app) {
+App* applicationInit() {
+
+    App* app = malloc(sizeof(App));
+    if (app == NULL) {
+        fprintf(stderr,"ERROR: can't initialize the application, memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
     // Init SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
         sdlExitWithMessage("can't init SDL2");
@@ -29,8 +36,10 @@ void applicationInit(App* app) {
 
     // Displaying
     while (SDL_PollEvent(&(app->event))) {
-        // Nothing yet
+        /* NOTHING */
     }
+
+    return app;
 }
 
 void applicationQuit(App* app) {

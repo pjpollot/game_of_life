@@ -17,8 +17,7 @@ int main() {
         sleep(1);
     } while (1);
     */
-    App* app = malloc(sizeof(App));
-    applicationInit(app);
+    App* app = applicationInit(app);
     sleep(6);
     applicationQuit(app);
     return 0;

@@ -17,7 +17,7 @@ typedef struct {
     SDL_Event event;
 } App;
 
-void applicationInit(App* app); // TODO
+App* applicationInit(); // TODO
 void applicationQuit(App* app); // TODO
 
 void sdlExitWithMessage(const char*);
