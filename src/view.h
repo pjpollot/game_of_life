@@ -17,8 +17,8 @@ typedef struct {
     SDL_Event event;
 } App;
 
-App* applicationInit(); // TODO
-void applicationQuit(App* app); // TODO
+App* applicationInit();
+void applicationQuit(App* app); 
 
 void renderGrid(App* ,const Grid);
 void cleanRendering(App*);

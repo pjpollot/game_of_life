@@ -24,7 +24,7 @@ none of these parameters is set, then the program **by default** will iterate `2
 
 ## Description
 
-This is a terminal-based program, so the printing is still quite simple, when you want to exit the game, just press `Crtl+C`.
+This is a terminal-based program, so the printing is still quite simple.
 
 ## TODO
 
