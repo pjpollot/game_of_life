@@ -23,7 +23,7 @@ App* applicationInit() {
     if (app->window == NULL)
         sdlExitWithMessage("can't create the window");
     
-    app->renderer = SDL_CreateRenderer(app->window,-1,SDL_RENDERER_SOFTWARE);
+    app->renderer = SDL_CreateRenderer(app->window,-1,SDL_RENDERER_ACCELERATED);
     if (app->renderer == NULL)
         sdlExitWithMessage("can't create the renderer");
 

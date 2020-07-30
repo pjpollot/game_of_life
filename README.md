@@ -2,9 +2,9 @@
 
 **author:** Pierre-Jean Pollot.
 
-## Language
+## Technologies 
 
-C - compiler gcc
+Language C with the graphic library SDL2. 
 
 ## Installation and run
 
