@@ -6,8 +6,8 @@
 #include <stdlib.h>
 #include "grid.h"
 
-#define WIDTH 300
-#define HEIGHT 300
+#define WIDTH 500
+#define HEIGHT 500
 #define DELAY 10000
 
 typedef struct {
@@ -20,6 +20,12 @@ typedef struct {
 App* applicationInit(); // TODO
 void applicationQuit(App* app); // TODO
 
+void renderGrid(App* ,const Grid);
+void cleanRendering(App*);
+
+// Additionnal tools
+void setColorWhite(App*);
+void setColorBlack(App*);
 void sdlExitWithMessage(const char*);
 
 #endif

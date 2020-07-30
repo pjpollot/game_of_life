@@ -17,8 +17,10 @@ make
 Then run the program by typing:
 
 ```{sh}
-./golife.run
+./golife.run [number of iterations] [time in milliseconds]
 ```
+
+none of these parameters is set, then the program **by default** will iterate `20 times` and change state each `500ms`.
 
 ## Description
 
@@ -26,5 +28,4 @@ This is a terminal-based program, so the printing is still quite simple, when yo
 
 ## TODO
 
-- Correct interface.
 - Saving new seeds.
