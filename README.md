@@ -2,7 +2,7 @@
 
 **author:** Pierre-Jean Pollot.
 
-<div style="text-align:center;"><img src="img/gof_recording.gif" alt="recording"></div>
+<img src="img/gof_recording.gif" alt="recording">
 
 ## Technologies
 
@@ -19,10 +19,10 @@ make
 Then run the program by typing:
 
 ```{sh}
-./golife.run [number of iterations] [time in milliseconds] [initial probability that a cell is living]
+./golife [-i] number of iterations [-t] time in milliseconds [-p] initial probability that a cell is living
 ```
 
-If none of these parameters is set, then the program **by default** will iterate `300 times` and change state each `70ms` for an initial porosity of `0.15`.
+**By default** will iterate `300 times` and change state each `70ms` for an initial porosity of `0.15`.
 
 ## Description
 

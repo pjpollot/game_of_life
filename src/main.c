@@ -11,26 +11,33 @@ int main(int argc, char* argv[]) {
     srand(time(0));
 
     // Fetching parameters
-    int maxIter;
-    double p;
+    int maxIter = 300;
+    double p = 0.15;
     struct timespec t;
+    t.tv_nsec = 70000000L;
+    t.tv_sec = 0;
 
-    if (argc == 4) {
-        // Maximum number of steps
-        maxIter = atoi(argv[1]);
-        // Delay per step
-        long timeMs = atol(argv[2]); // argv[2] in ms
-        t.tv_sec = timeMs/1000;
-        t.tv_nsec = 1000000L*(timeMs%1000);
-        // Initial porosity of the grid
-        p = atof(argv[3]);
-        if (p < 0 || p > 1)
-            p = 0.15; // by default 
-    } else {
-        maxIter = 300;
-        t.tv_nsec = 70000000L;
-        t.tv_sec = 0;
-        p = 0.15;
+    int c = 0;
+    long timeMs;
+    while (c != -1) {
+        c = getopt(argc,argv,"i:t:p:");
+        switch (c)
+        {
+        case 'i':
+            maxIter = atoi(optarg);
+            break;
+        case 't':
+            timeMs = atol(optarg);
+            t.tv_sec = timeMs/1000;
+            t.tv_nsec = 1000000L*(timeMs%1000);
+            break;
+        case 'p':
+            p = atof(optarg);
+            if (p < 0 || p > 1) p = 0.15; // We keep the default value
+            break;
+        default:
+            break;
+        }    
     }
 
     // Init
@@ -51,5 +58,5 @@ int main(int argc, char* argv[]) {
     }
     
     applicationQuit(app);
-    return 0;
+    return EXIT_SUCCESS;
 }

@@ -1,5 +1,5 @@
 CC = gcc
-EXE = golife.run
+EXE = golife
 LINK = -lSDL2
 
 compile: 
