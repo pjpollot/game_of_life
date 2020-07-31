@@ -2,6 +2,8 @@
 
 **author:** Pierre-Jean Pollot.
 
+<div style="text-align:center;"><img src="img/gof_recording.gif" alt="recording"></div>
+
 ## Technologies
 
 Language C with the graphic library SDL2.
