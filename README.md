@@ -40,7 +40,7 @@ Then run the program by typing:
 
 > *-c* : enables the Colorful mode.
 
-**By default** will iterate `300 times` and change state each `70ms` for an initial porosity of `0.15`.
+**By default**, it will iterate `300 times` and change state each `70ms` for an initial porosity of `0.15`.
 
 ## Tinkering your own game of life
 
