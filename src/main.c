@@ -1,7 +1,8 @@
-#include <unistd.h>
-#include <time.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
 #include "properties.h"
 #include "grid.h"
 #include "rules.h"

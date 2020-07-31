@@ -19,18 +19,6 @@ void initGrid(Grid grid) {
     } 
 }
 
-int loadSave(Grid grid, const char* fileName) {
-    FILE* seedFile = fopen(fileName,"r");
-    if (seedFile == NULL) return 1; // Error: file not found
-    unsigned x, y;
-    while (!feof(seedFile)) {
-        fscanf(seedFile,"%d %d",&y,&x);
-        grid[y][x] = '$';
-    }
-    fclose(seedFile);
-    return 0; // All went well
-}
-
 void randomInitialState(Grid grid, const double p) {
     for (int i = 1; i <= NGRID; i++) {
         for (int j = 1; j <= NGRID; j++) {
