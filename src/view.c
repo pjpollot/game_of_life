@@ -32,12 +32,12 @@ App* applicationInit() {
     app->rectangle.h = HEIGHT/NGRID;
     app->rectangle.w = WIDTH/NGRID;
 
-    // Displaying
-    while (SDL_PollEvent(&(app->event))) {
-        /* Nothing */
-    }
-
     return app;
+}
+
+char quitEvent(App* app) {
+    SDL_PollEvent(&(app->event));
+    return (app->event.type == SDL_QUIT);
 }
 
 void applicationQuit(App* app) {

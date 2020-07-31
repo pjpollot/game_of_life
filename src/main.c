@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
     int iter = 0;
     if (withColor) {
         // Then we print all cells => colorful screen
-        while (iter < maxIter) {
+        while (iter < maxIter && !quitEvent(app)) {
             step1update(grid);
             renderGrid(app,grid);
             nanosleep(&t,NULL);
@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
         }
     } else {
         // Then we print only the living and dead cells => black and white screen
-        while (iter < maxIter) {
+        while (iter < maxIter && !quitEvent(app)) {
             renderGrid(app,grid);
             nanosleep(&t,NULL);
             cleanRendering(app);

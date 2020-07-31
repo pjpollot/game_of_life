@@ -1,9 +1,9 @@
 CC = gcc
-EXE = golife
+CFLAG = -O2 -std=c11
 LINK = -lSDL2
 
 compile: 
-	$(CC) src/*.c -o $(EXE) $(LINK)
+	$(CC) $(CFLAG) src/*.c -o golife $(LINK)
 
 clean:
-	rm $(EXE)
+	rm golife

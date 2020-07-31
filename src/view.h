@@ -20,6 +20,9 @@ void applicationQuit(App* app);
 void renderGrid(App* ,const Grid);
 void cleanRendering(App*);
 
+// Event handling
+char quitEvent(App*); // Returns 1 if the application has to quit, 0 otherwise
+
 // Additionnal tools
 void setColorWhite(App*);
 void setColorBlack(App*);
