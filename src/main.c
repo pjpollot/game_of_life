@@ -13,15 +13,16 @@ int main(int argc, char* argv[]) {
     // Fetching parameters
     int maxIter = 300;
     double p = 0.15;
+    char withColor = 0;
     struct timespec t;
     t.tv_nsec = 70000000L;
     t.tv_sec = 0;
 
-    int c = 0;
+    int param = 0;
     long timeMs;
-    while (c != -1) {
-        c = getopt(argc,argv,"i:t:p:");
-        switch (c)
+    while (param != -1) {
+        param = getopt(argc,argv,"i:t:p:c");
+        switch (param)
         {
         case 'i':
             maxIter = atoi(optarg);
@@ -34,6 +35,9 @@ int main(int argc, char* argv[]) {
         case 'p':
             p = atof(optarg);
             if (p < 0 || p > 1) p = 0.15; // We keep the default value
+            break;
+        case 'c':
+            withColor = 1;
             break;
         default:
             break;
@@ -48,13 +52,25 @@ int main(int argc, char* argv[]) {
     // Rendering
     App* app = applicationInit(app);
     int iter = 0;
-    while (iter < maxIter) {
-        step1update(grid);
-        renderGrid(app,grid);
-        nanosleep(&t,NULL);
-        cleanRendering(app);
-        step2update(grid);
-        iter++;
+    if (withColor) {
+        // Then we print all cells => colorful screen
+        while (iter < maxIter) {
+            step1update(grid);
+            renderGrid(app,grid);
+            nanosleep(&t,NULL);
+            cleanRendering(app);
+            step2update(grid);
+            iter++;
+        }
+    } else {
+        // Then we print only the living and dead cells => black and white screen
+        while (iter < maxIter) {
+            renderGrid(app,grid);
+            nanosleep(&t,NULL);
+            cleanRendering(app);
+            update(grid);
+            iter++;
+        }
     }
     
     applicationQuit(app);
