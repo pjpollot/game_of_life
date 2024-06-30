@@ -1,4 +1,4 @@
-# The Conway's game of life
+# John Conway's game of life
 
 **author:** Pierre-Jean Pollot.
 
